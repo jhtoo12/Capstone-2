@@ -1,10 +1,12 @@
 package com.pluralsight;
 
+import com.pluralsight.model.Receipt;
 import com.pluralsight.ui.UserInterface;
 
 public class Main {
     public static void main(String[] args) {
         UserInterface userInterface = new UserInterface();
+
 
         userInterface.run();
     }

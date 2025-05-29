@@ -1,6 +1,5 @@
-package com.pluralsight.model;
+package com.pluralsight.util;
 
-import javax.swing.text.DateFormatter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,7 +15,7 @@ public class Receipt {
         String date = ft.format(new Date());
 
         try {
-            File file = new File("receipts/" + date);
+            File file = new File("receipts.txt/" + date);
             if (!file.createNewFile()) {
                 System.out.println("File already exists.");
             }

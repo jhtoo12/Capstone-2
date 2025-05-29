@@ -28,8 +28,10 @@ public class Chips extends MenuItem{
     @Override
     public String toString() {
         return "Chip: " +
-                "type ='" + type +
+                "type =" + type +
               "\nCost: $" + getItemPrice();
+
+
     }
 }
 

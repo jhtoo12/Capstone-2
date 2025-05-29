@@ -1,6 +1,6 @@
 package com.pluralsight.enums;
 
-public enum Cheese{
+public enum Cheese {
     AMERICAN,
     PROVOLONE,
     CHEDDAR,

@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import com.pluralsight.model.Receipt;
 import com.pluralsight.ui.UserInterface;
 
 public class Main {

@@ -1,4 +1,4 @@
-package com.pluralsight.model.Enums;
+package com.pluralsight.enums;
 
 public enum RegularToppings {
     LETTUCE,

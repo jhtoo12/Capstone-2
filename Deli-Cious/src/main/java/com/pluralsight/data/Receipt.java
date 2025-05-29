@@ -1,4 +1,4 @@
-package com.pluralsight.util;
+package com.pluralsight.data;
 
 import java.io.File;
 import java.io.FileWriter;

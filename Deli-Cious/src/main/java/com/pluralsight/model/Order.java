@@ -33,7 +33,7 @@ public class Order {
         for(MenuItem item: items){
             if(item instanceof Sandwich)
             {
-                output += item.toString();
+                output += item.toString() + "\n";
             }
         }
 
@@ -42,7 +42,7 @@ public class Order {
         for(MenuItem item: items){
             if(item instanceof Drink)
             {
-                output += item.toString();
+                output += item.toString() +"\n";
             }
         }
 
@@ -51,7 +51,7 @@ public class Order {
         for(MenuItem item: items){
             if(item instanceof Chips)
             {
-                output += item.toString();
+                output += item.toString() + "\n";
             }
         }
 

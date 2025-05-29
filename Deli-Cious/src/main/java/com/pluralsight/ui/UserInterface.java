@@ -1,7 +1,8 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.enums.*;
 import com.pluralsight.model.*;
-import com.pluralsight.model.Enums.*;
+import com.pluralsight.data.Receipt;
 
 import java.util.Scanner;
 
@@ -14,15 +15,16 @@ public class UserInterface {
     }
 
     public void displayHomeScreen() {
-        System.out.println("1: New Order" +
-                         "\n0: Exit" +
-                         "\nEnter Choice: ");
+        System.out.println
+                ("1: New Order" +
+                "\n0: Exit" +
+                "\nEnter Choice: ");
 
         String choice = scanner.nextLine();
 
         switch (choice) {
             case "0":
-                System.out.println("Thank you for visiting our shop!");
+                System.out.println("Thank you for visiting our amazing and delicious shop!");
                 break;
             case "1":
                 order = new Order();
@@ -34,12 +36,14 @@ public class UserInterface {
                 break;
         }
     }
+
     public void displayOrderScreen() {
 
         boolean isOrdering = true;
 
-        while(isOrdering) {
-            System.out.println("1: Add Sandwich" +
+        while (isOrdering) {
+            System.out.println
+                    ("1: Add Sandwich" +
                     "\n2: Add Drink" +
                     "\n3: Add Chips" +
                     "\n4: Checkout" +
@@ -50,13 +54,12 @@ public class UserInterface {
 
             switch (choice) {
                 case "0":
-                    System.out.println("Order Canceled");
+                    System.out.println("Order Canceled :( ");
                     isOrdering = false;
                     displayHomeScreen();
                     break;
                 case "1":
                     displayAddSandwichScreen();
-
                     break;
                 case "2":
                     displayAddDrinkScreen();
@@ -70,14 +73,21 @@ public class UserInterface {
             }
         } //emd of while loop
     }
+
     public void displayAddSandwichScreen() {
         //Selecting bread
-        System.out.println("Select Bread (White, Wheat, Rye, Wrap)" +
-                         "\nEnter Choice: ");
+        System.out.println
+                ("Select Bread" +
+                "\n1: White" +
+                "\n2: Wheat" +
+                "\n3: Rye" +
+                "\n4: Wrap" +
+                "\nEnter Choice: ");
+
         String inputBread = scanner.nextLine().toLowerCase();
         Bread bread = null;
-        switch (inputBread)
-        {
+
+        switch (inputBread) {
             case "white":
                 bread = Bread.WHITE;
                 break;
@@ -93,131 +103,198 @@ public class UserInterface {
         }
 
         //Selecting size
-        System.out.println("Select Sandwich Size by Inch (4, 8, 12)" +
-                           "\nEnter Choice: ");
+        System.out.println
+                ("Select Sandwich Size by Inch " +
+                        "\n1: 4 Inch" +
+                        "\n2: 8 Inch" +
+                        "\n3: 12 Inch" +
+                        "\nEnter Choice: ");
+
         String size = scanner.nextLine();
+        int sizee = 0;
+
+        switch (size){
+            case "1":
+                sizee = 4;
+
+                break;
+            case "2":
+                sizee = 8;
+                break;
+
+            case "3":
+                sizee = 12;
+                break;
+
+
+            //add 12in option
+
+        }
 
         //Creating the initial sandwich
-        Sandwich sandwich = new Sandwich(bread, Integer.parseInt(size));
+        Sandwich sandwich = new Sandwich(bread, sizee);
 
         //Selecting meats
         boolean keepAdding = true;
 
-        while(keepAdding) {
-            System.out.println("Select Topping (Meat, Cheese, RegularToppings,Sauces,Exit)" +
-                             "\nEnter Choice: ");
+        while (keepAdding) {
+            System.out.println
+                    ("Select Topping!! " +
+                            "(Meat, " +
+                            "Cheese, " +
+                            "Veggies, " +
+                            "Sauces, " +
+                            "Exit)" +
+                    "\nEnter Choice: ");
             String choice = scanner.nextLine().toLowerCase();
 
             switch (choice) {
                 case "meat":
-                    System.out.println("Select Meat (Steak, Ham, Salami, RoastBeef, chicken, bacon)" +
-                            "\nEnter Choice: ");
+                    System.out.println("Select Meat!! " +
+                                    "\n1: Steak" +
+                                    "\n2: Ham" +
+                                    "\n3: Salami" +
+                                    "\n4: RoastBeef" +
+                                    "\n5: Chicken" +
+                                    "\n6: Bacon" +
+                                    "\nEnter Choice: ");
+
                     String meat = scanner.nextLine().toLowerCase();
 
-
-                    switch (meat)
-                    {
-                        case "steak":
-                         //   Meat = Meat.STEAK;
+                    switch (meat) {
+                        case "1":
                             sandwich.addMeat(Meat.STEAK);
                             break;
-                        case "ham":
-                           // meat = Meat.HAM;
+                        case "2":
                             sandwich.addMeat(Meat.HAM);
                             break;
-                        case "salami":
-                           sandwich.addMeat(Meat.SALAMI);
+                        case "3":
+                            sandwich.addMeat(Meat.SALAMI);
                             break;
-                        case "roastbeef":
-                           sandwich.addMeat(Meat.ROASTBEEF);
+                        case "4":
+                            sandwich.addMeat(Meat.ROASTBEEF);
                             break;
-                        case "chicken":
+                        case "5":
                             sandwich.addMeat(Meat.CHICKEN);
                             break;
-                        case "bacon":
+                        case "6":
                             sandwich.addMeat(Meat.BACON);
                             break;
                     }
+
                     break;
 
                 case "cheese":
-                    System.out.println("Select Cheese (American, Provolone, Cheddar, Swiss)" +
-                                     "\nEnter Choice: ");
-                    String cheese = scanner.nextLine().toLowerCase();
-                   // Cheese cheese = null;
+                    System.out.println
+                            ("Select Cheese!! " +
+                                    "\n1: American" +
+                                    "\n2: Provolone" +
+                                    "\n3: Cheddar" +
+                                    "\n4: Swiss" +
+                                    "\nEnter Choice: ");
 
-                    switch (cheese)
-                    {
-                        case "american":
+                    String cheese = scanner.nextLine().toLowerCase();
+
+                    switch (cheese) {
+                        case "1":
                             sandwich.addCheese(Cheese.AMERICAN);
                             break;
-                        case "provolone":
+                        case "2":
                             sandwich.addCheese(Cheese.PROVOLONE);
                             break;
-                        case "cheddar":
+                        case "3":
                             sandwich.addCheese(Cheese.CHEDDAR);
                             break;
-                        case "swiss":
+                        case "4":
                             sandwich.addCheese(Cheese.SWISS);
                             break;
                     }
 
-                   // sandwich.addCheese(cheese);
+                    // sandwich.addCheese(cheese);
                     break;
-                case "regulartoppings":
-                    System.out.println("Select Regular Toppings (Lettuce, peppers, Salami, RoastBeef, chicken, bacon)" +
-                                     "\nEnter Choice: ");
+                case "veggies":
+                    System.out.println("Select Regular Toppings!!" +
+                            "\n1: Lettuce" +
+                            "\n2: Peppers" +
+                            "\n3: Onions" +
+                            "\n4: Tomatoes" +
+                            "\n5: Jalapenos" +
+                            "\n6: Cucumber" +
+                            "\n7: Pickles" +
+                            "\n8: Guacamole" +
+                            "\n9: Mushrooms" +
+                            "\nEnter Choice: ");
+
+
                     String regulartopping = scanner.nextLine().toLowerCase();
                     RegularToppings regularTopping = null;
 
-                    switch (regulartopping)
-                    {
+                    switch (regulartopping) {
 
-                        case "lettuce":
-                            regularTopping = RegularToppings.LETTUCE;
+                        case "1":
+                            sandwich.addRegularToppings(RegularToppings.LETTUCE);
                             break;
-                        case "peppers":
-                            regularTopping = RegularToppings.PEPPERS;
+                        case "2":
+                            sandwich.addRegularToppings(RegularToppings.PEPPERS);
                             break;
-                        case "onions":
-                            regularTopping = RegularToppings.ONIONS;
+                        case "3":
+                            sandwich.addRegularToppings(RegularToppings.ONIONS);
                             break;
-                        case "tomatoes":
-                            regularTopping = RegularToppings.TOMATOES;
+                        case "4":
+                            sandwich.addRegularToppings(RegularToppings.TOMATOES);
                             break;
-                        case "jalapenos":
-                            regularTopping = RegularToppings.JALAPENOS;
+                        case "5":
+                            sandwich.addRegularToppings(RegularToppings.JALAPENOS);
                             break;
-                        case "cucumbers":
-                          regularTopping = RegularToppings.CUCUMBERS;
+                        case "6":
+                            sandwich.addRegularToppings(RegularToppings.CUCUMBERS);
                             break;
-                        case "pickles":
-                           regularTopping = RegularToppings.PICKLES;
+                        case "7":
+                            sandwich.addRegularToppings(RegularToppings.PICKLES);
                             break;
-                        case "guacamole":
-                           regularTopping = RegularToppings.GUACAMOLE;
+                        case "8":
+                            sandwich.addRegularToppings(RegularToppings.GUACAMOLE);
                             break;
-                        case "mushrooms":
-                            regularTopping = RegularToppings.MUSHROOMS;
+                        case "9":
+                            sandwich.addRegularToppings(RegularToppings.MUSHROOMS);
                             break;
                     }
 
-                    sandwich.addRegularToppings(regularTopping);
+                   // sandwich.addRegularToppings(regularTopping);
                     break;
 
                 case "sauces":
-                    System.out.println("Select Sauces(Mayo, Mustard)" +
+                    System.out.println("Select Sauces!!" +
+                            "\n1: Mayo" +
+                            "\n2: Mustard" +
+                            "\n3: Ketchup" +
+                            "\n4: Ranch" +
+                            "\n5: Thousand Island" +
+                            "\n6: Vinaigrette" +
                             "\nEnter Choice: ");
+
                     String sauces = scanner.nextLine().toLowerCase();
                     Sauces sauce = null;
 
                     switch (sauces) {
-                        case "mayo":
+
+                        case "1":
                             sauce = Sauces.MAYO;
                             break;
-                        case "mustard":
+                        case "2":
                             sauce = Sauces.MUSTARD;
                             break;
+                        case "3":
+                            sauce = Sauces.KETCHUP;
+                            break;
+                        case "4":
+                            sauce = Sauces.RANCH;
+                            break;
+                        case "5":
+                            sauce = Sauces.THOUSANDISLAND;
+                            break;
+                        case "6":
+                            sauce = Sauces.VINAIGRETTE;
                     }
 
                     sandwich.SetSauce(sauce);
@@ -226,11 +303,10 @@ public class UserInterface {
                 case "exit":
                     System.out.println("Do you want your sandwich toasted? (Yes or No)");
                     String toastedChoice = scanner.nextLine();
-                    if(toastedChoice.equalsIgnoreCase("yes")) {
-                        sandwich.setIsToasted("Is Toasty");
-                    }
-                    else {
-                        sandwich.setIsToasted("Not Toasty");
+                    if (toastedChoice.equalsIgnoreCase("yes")) {
+                        sandwich.setIsToasted("Is Toasty :) ");
+                    } else {
+                        sandwich.setIsToasted("Not Toasty :( ");
                     }
 
                     order.addItemToOrder(sandwich);
@@ -242,29 +318,32 @@ public class UserInterface {
         }
         // end of the while loop
     }
+
     public void displayAddDrinkScreen() {
         boolean isOrdering = true;
 
-        while(isOrdering) {
+        while (isOrdering) {
             System.out.println("Select Drink Size (S, M, L)" +
                     "\nEnter Choice: ");
+
             String size = scanner.nextLine().toUpperCase();
 
             System.out.println("Which flavor do you want? (Coke, Sprite, Pepsi, Fanta, Water)" +
                     "\nEnter Choice: ");
             String flavor = scanner.nextLine().toLowerCase();
 
-            Drink drink = new Drink(size, flavor);
+            Drink drink = new Drink(flavor, size);
 
             order.addItemToOrder(drink);
 
             isOrdering = false;
         } //end of while loop
     }
+
     public void displayAddChipsScreen() {
         boolean isOrdering = true;
 
-        while(isOrdering) {
+        while (isOrdering) {
             System.out.println("Which type do you want? (Lays, Doritos, SunChips, Kettle)" +
                     "\nEnter Choice: ");
             String type = scanner.nextLine().toLowerCase();
@@ -276,18 +355,18 @@ public class UserInterface {
             isOrdering = false;
         }//end of while loop
     }
+
     public void displayCheckoutScreen() {
         System.out.println(order.displayOrder());
 
         System.out.println("Confirm or Cancel order: (Confirm, Cancel)");
 
         String choice = scanner.nextLine();
-        if(choice.equalsIgnoreCase("confirm")) {
-            System.out.println("Order Confrimed!" +
-                    "\nThank you for shopping with us");
-            Receipt receipt = new Receipt(order.displayOrder());
-        }
-        else {
+        if (choice.equalsIgnoreCase("confirm")) {
+            System.out.println("Order Confirm!!, enjoy the Delicious meal" +
+                    "\nThank you for eating with us");
+            Receipt info = new Receipt(order.displayOrder());
+        } else {
             System.out.println("Order Canceled");
             displayHomeScreen();
         }

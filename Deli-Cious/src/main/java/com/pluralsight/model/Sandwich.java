@@ -1,9 +1,8 @@
 package com.pluralsight.model;
 
 
-import com.pluralsight.model.Enums.*;
+import com.pluralsight.enums.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Sandwich extends MenuItem {
@@ -59,7 +58,6 @@ public class Sandwich extends MenuItem {
 
         double sandwichTotal = 0;
 
-
         //get bread price
         sandwichTotal += getBreadPrice();
 
@@ -69,13 +67,8 @@ public class Sandwich extends MenuItem {
         //get cost for cheese
         sandwichTotal += getCheesesPrice();
 
-
         return sandwichTotal;
     }
-
-
-
-
     // bread price helper method
     private double getBreadPrice(){
 
@@ -86,21 +79,17 @@ public class Sandwich extends MenuItem {
             case 8:
                 return 7;
 
-
             case 12:
                 return 8.50;
-
         }
         return  0;
     }
-
 
     private double getMeatPrice() {
 
         double meatCost = 0;
 
-
-        if (cheeses.isEmpty()) {
+        if (meats.isEmpty()) {
 
             return meatCost;
         } else {
@@ -108,37 +97,33 @@ public class Sandwich extends MenuItem {
             switch (size) {
                 case 4:
 
-                    meatCost += 1.00; //if it's not empty it has at least 1 meat topping
+                    meatCost += 1.00;
 
                     //after we add the initial topping... we need to iterate through the arraylist to
-                    //add the 'extra cost' for the remaidner meat tioppings
-                    for (int i = 1; i < cheeses.size(); i++) {
+                    //add the 'extra cost' for the remaindner meat tioppings
+                    for (int i = 1; i < meats.size(); i++) {
                         meatCost += .50;
                     }
-
                     return meatCost;
 
                 case 8:
 
                     meatCost += 2.00; //if it's not empty it has at least 1 meat topping
 
-                    for (int i = 1; i < cheeses.size(); i++) {
+                    for (int i = 1; i < meats.size(); i++) {
                         meatCost += 1;
                     }
-
                     return meatCost;
 
                 case 12:
 
                     meatCost += 3.00; //if it's not empty it has at least 1 meat topping
 
-                    for (int i = 1; i < cheeses.size(); i++) {
+                    for (int i = 1; i < meats.size(); i++) {
                         meatCost += 1.50;
 
                         return meatCost;
-
                     }
-
             }
         }
         return 0;
@@ -148,38 +133,30 @@ public class Sandwich extends MenuItem {
         double cheeseCost = 0;
 
         if (cheeses.isEmpty()) {
-
             return cheeseCost;
-        } else {
 
+        } else {
             switch (size) {
                 case 4:
-
-                    cheeseCost += 1.00; //if it's not empty it has at least 1 meat topping
-                    //after we add the initial topping... we need to iterate through the arraylist to
-                    //add the 'extra cost' for the remaidner meat tioppings
+                    cheeseCost += 0.75;
                     for (int i = 1; i < cheeses.size(); i++) {
-                        cheeseCost += .50;
+                        cheeseCost += .30;
                     }
                     return cheeseCost;
 
                 case 8:
-
-                    cheeseCost += 2.00; //if it's not empty it has at least 1 meat topping
+                    cheeseCost += 1.50;
                     for (int i = 1; i < cheeses.size(); i++) {
-                        cheeseCost += 1;
+                        cheeseCost += .60;
                     }
                     return cheeseCost;
 
                 case 12:
-
-                    cheeseCost += 3.00; //if it's not empty it has at least 1 meat topping
+                    cheeseCost += 2.25;
                     for (int i = 1; i < cheeses.size(); i++) {
-                        cheeseCost += 1.50;
+                        cheeseCost += 2.25;
                         return cheeseCost;
-
                     }
-
             }
         }
         return 0;

@@ -125,10 +125,6 @@ public class UserInterface {
             case "3":
                 sizee = 12;
                 break;
-
-
-            //add 12in option
-
         }
 
         //Creating the initial sandwich
@@ -181,7 +177,6 @@ public class UserInterface {
                             sandwich.addMeat(Meat.BACON);
                             break;
                     }
-
                     break;
 
                 case "cheese":

@@ -1,0 +1,10 @@
+Sandwiches:
+Sandwich: Bread =null, Size =4, Meats =[STEAK], Cheeses =[AMERICAN], RegularToppings =[ONIONS], Sauce =MAYO, Toasted =Is Toasty :) 
+Cost: $7.25
+Drinks:
+Drink: Flavor =cike, Size =S
+Cost: $2.0
+Chips:
+Chip: type =lays
+Cost: $1.5
+Total Cost: 10.75
